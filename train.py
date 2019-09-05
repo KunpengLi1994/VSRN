@@ -34,7 +34,7 @@ def main():
                         help='Size of a training mini-batch.')
     parser.add_argument('--word_dim', default=300, type=int,
                         help='Dimensionality of the word embedding.')
-    parser.add_argument('--embed_size', default=1024, type=int,
+    parser.add_argument('--embed_size', default=2048, type=int,
                         help='Dimensionality of the joint embedding.')
     parser.add_argument('--grad_clip', default=2., type=float,
                         help='Gradient clipping threshold.')
@@ -58,7 +58,7 @@ def main():
                         help='path to latest checkpoint (default: none)')
     parser.add_argument('--max_violation', action='store_true',
                         help='Use max instead of sum in the rank loss.')
-    parser.add_argument('--img_dim', default=4096, type=int,
+    parser.add_argument('--img_dim', default=2048, type=int,
                         help='Dimensionality of the image embedding.')
     parser.add_argument('--finetune', action='store_true',
                         help='Fine-tune the image encoder.')
@@ -81,7 +81,7 @@ def main():
     parser.add_argument(
         '--dim_vid',
         type=int,
-        default=1024,
+        default=2048,
         help='dim of features of video frames')
     parser.add_argument(
         '--dim_hidden',
