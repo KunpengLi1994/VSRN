@@ -280,7 +280,6 @@ def validate(opt, val_loader, model):
     return currscore
 
 
-
 def save_checkpoint(state, is_best, filename='checkpoint.pth.tar', prefix=''):
     torch.save(state, prefix + filename)
     if is_best:
