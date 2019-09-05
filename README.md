@@ -34,14 +34,15 @@ wget https://scanproject.blob.core.windows.net/scan-data/data.zip
 
 We refer to the path of extracted files for `data.zip` as `$DATA_PATH`. 
 
-## Evaluate pre-trained models
+## Evaluate trained models
 Modify the model_path and data_path in the evaluation_models.py file. Then Run `evaluation_models.py`:
 
 ```bash
 python evaluation_models.py
 ```
 
-To do cross-validation on MSCOCO 1K test set, pass `fold5=True`. Pass `fold5=False` for evaluation on MSCOCO 5K test set.
+To do cross-validation on MSCOCO 1K test set, pass `fold5=True`. Pass `fold5=False` for evaluation on MSCOCO 5K test set. Pretrained models can be downloaded from https://drive.google.com/file/d/1C4Z8ZgJuvrChigPO7g-IGd68y6VqWQ5n/view?usp=sharing
+
 
 ## Training new models
 Run `train.py`:
