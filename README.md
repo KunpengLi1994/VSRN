@@ -64,7 +64,7 @@ To do cross-validation on MSCOCO 1K test set, pass `fold5=True`. Pass `fold5=Fal
 
 If you found this code useful, please cite the following paper:
 
-    @inproceedings{li2019vsr,
+    @inproceedings{li2019vsrn,
       title={Visual semantic reasoning for image-text matching},
       author={Li, Kunpeng and Zhang, Yulun and Li, Kai and Li, Yuanyuan and Fu, Yun},
       booktitle={ICCV},
