@@ -69,6 +69,8 @@ To do cross-validation on MSCOCO 1K test set, pass `fold5=True`. Pass `fold5=Fal
 ![Q_i2t](/fig/Q_i2t.png)
 Qualitative results of the image-to-text (caption) retrieval for VSRN.
 
+
+
 ![Q_t2i_2](/fig/Q_t2i_2.png)
 Qualitative results of the text-to-image (image) retrieval for VSRN on MS-COCO dataset. We show the top-3 retrieved images for each text query, ranking from left to right. The true matches are outlined in green boxes and false matches in red boxes.
 
