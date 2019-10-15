@@ -37,7 +37,7 @@ We follow [bottom-up attention model](https://github.com/peteanderson80/bottom-u
 wget https://scanproject.blob.core.windows.net/scan-data/data.zip
 ```
 
-We refer to the path of extracted files for `data.zip` as `$DATA_PATH`. 
+You can also get the data from google drive: https://drive.google.com/drive/u/1/folders/1os1Kr7HeTbh8FajBNegW8rjJf6GIhFqC. We refer to the path of extracted files for `data.zip` as `$DATA_PATH`. 
 
 ## Training new models
 Run `train.py`:
