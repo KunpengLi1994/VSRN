@@ -53,7 +53,7 @@ class Rs_GCN(nn.Module):
 
     def forward(self, v):
         '''
-        :param v: (b, c, t, h, w)
+        :param v: (B, D, N)
         :return:
         '''
         batch_size = v.size(0)
