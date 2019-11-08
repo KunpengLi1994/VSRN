@@ -238,13 +238,13 @@ class EncoderImagePrecompAttn(nn.Module):
         fc_img_emd = l2norm(fc_img_emd)
 
         # GCN reasoning
-        # -> B,C,n
+        # -> B,D,N
         GCN_img_emd = fc_img_emd.permute(0, 2, 1)
         GCN_img_emd = self.Rs_GCN_1(GCN_img_emd)
         GCN_img_emd = self.Rs_GCN_2(GCN_img_emd)
         GCN_img_emd = self.Rs_GCN_3(GCN_img_emd)
         GCN_img_emd = self.Rs_GCN_4(GCN_img_emd)
-        # -> B,n,C
+        # -> B,N,D
         GCN_img_emd = GCN_img_emd.permute(0, 2, 1)
 
         GCN_img_emd = l2norm(GCN_img_emd)
