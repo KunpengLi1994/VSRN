@@ -53,7 +53,7 @@ python train.py --data_path $DATA_PATH --data_name coco_precomp --logger_name ru
 For Flickr30K:
 
 ```bash
-python train.py --data_path $DATA_PATH --data_name f30k_precomp --logger_name runs/filker_VSRN --max_violation --max_len 40
+python train.py --data_path $DATA_PATH --data_name f30k_precomp --logger_name runs/flickr_VSRN --max_violation --lr_update 10 --num_epochs 20 --max_len 60
 ```
 
 ## Evaluate trained models
@@ -63,7 +63,7 @@ Modify the model_path and data_path in the evaluation_models.py file. Then Run `
 python evaluation_models.py
 ```
 
-To do cross-validation on MSCOCO 1K test set, pass `fold5=True`. Pass `fold5=False` for evaluation on MSCOCO 5K test set. Pretrained models can be downloaded from https://drive.google.com/file/d/1C4Z8ZgJuvrChigPO7g-IGd68y6VqWQ5n/view?usp=sharing
+To do cross-validation on MSCOCO 1K test set, pass `fold5=True`. Pass `fold5=False` for evaluation on MSCOCO 5K test set. Pretrained models for MSCOCO and Flickr30K can be downloaded from https://drive.google.com/file/d/1y8Ywa2vrPB7m_Q_Ku69z7EdwsLB9gsJW/view?usp=sharing
 
 
 ## Reference
