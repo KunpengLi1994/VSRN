@@ -37,7 +37,7 @@ def EncoderImage(data_name, img_dim, embed_size, finetune=False,
     if data_name.endswith('_precomp'):
         if use_txt_emb == True:
             img_enc = EncoderImagePrecompAttn(
-                img_dim, embed_size, use_abs, no_imgnorm)            
+                img_dim, embed_size, data_name, use_abs, no_imgnorm)            
         else:
             img_enc = EncoderImagePrecomp(
                 img_dim, embed_size, use_abs, no_imgnorm)
@@ -201,12 +201,13 @@ class EncoderImagePrecomp(nn.Module):
 
 class EncoderImagePrecompAttn(nn.Module):
 
-    def __init__(self, img_dim, embed_size, use_abs=False, no_imgnorm=False):
+    def __init__(self, img_dim, embed_size, data_name, use_abs=False, no_imgnorm=False):
         super(EncoderImagePrecompAttn, self).__init__()
         self.embed_size = embed_size
         self.no_imgnorm = no_imgnorm
         self.use_abs = use_abs
-
+        self.data_name = data_name
+        
         self.fc = nn.Linear(img_dim, embed_size)
 
         self.init_weights()
@@ -221,7 +222,8 @@ class EncoderImagePrecompAttn(nn.Module):
         self.Rs_GCN_3 = Rs_GCN(in_channels=embed_size, inter_channels=embed_size)
         self.Rs_GCN_4 = Rs_GCN(in_channels=embed_size, inter_channels=embed_size)
 
-
+        if self.data_name == 'f30k_precomp':
+            self.bn = nn.BatchNorm1d(embed_size)        
 
     def init_weights(self):
         """Xavier initialization for the fully connected layer
@@ -235,7 +237,8 @@ class EncoderImagePrecompAttn(nn.Module):
         """Extract image feature vectors."""
 
         fc_img_emd = self.fc(images)
-        fc_img_emd = l2norm(fc_img_emd)
+        if self.data_name != 'f30k_precomp':
+            fc_img_emd = l2norm(fc_img_emd)
 
         # GCN reasoning
         # -> B,D,N
@@ -251,6 +254,8 @@ class EncoderImagePrecompAttn(nn.Module):
 
         rnn_img, hidden_state = self.img_rnn(GCN_img_emd)
 
+        if self.data_name == 'f30k_precomp':
+            features = self.bn(features)          
 
         # features = torch.mean(rnn_img,dim=1)
         features = hidden_state[0]
