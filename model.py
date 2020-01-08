@@ -254,12 +254,12 @@ class EncoderImagePrecompAttn(nn.Module):
 
         rnn_img, hidden_state = self.img_rnn(GCN_img_emd)
 
-        if self.data_name == 'f30k_precomp':
-            features = self.bn(features)          
-
         # features = torch.mean(rnn_img,dim=1)
         features = hidden_state[0]
 
+        if self.data_name == 'f30k_precomp':
+            features = self.bn(features)                
+               
         # normalize in the joint embedding space
         if not self.no_imgnorm:
             features = l2norm(features)
