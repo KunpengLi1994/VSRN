@@ -74,7 +74,7 @@ python train.py --data_path $DATA_PATH --data_name coco_precomp --logger_name ru
 For Flickr30K:
 
 ```bash
-python train.py --data_path $DATA_PATH --data_name f30k_precomp --logger_name runs/flickr_VSRN --max_violation --lr_update 10 --num_epochs 20 --max_len 60
+python train.py --data_path $DATA_PATH --data_name f30k_precomp --logger_name runs/flickr_VSRN --max_violation --lr_update 10  --max_len 60
 ```
 
 
